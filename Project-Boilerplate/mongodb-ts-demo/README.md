@@ -2,5 +2,4 @@
 
 ```sh
 npm i mongodb
-
 ```
