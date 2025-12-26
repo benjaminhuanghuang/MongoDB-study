@@ -1,0 +1,19 @@
+{
+  "name": "mongoose-ts-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.tts",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.ts",
+    "demo": "tsx --watch demo.ts"
+  },
+  "dependencies": {
+    "mongoose": "^9.0.2",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "tsx": "^4.21.0"
+  }
+}
