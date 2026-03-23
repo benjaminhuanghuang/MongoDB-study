@@ -1,0 +1,34 @@
+@baseUrl = http://localhost:3721/api/users
+@userId = REPLACE_WITH_USER_ID
+
+### Get all users
+GET {{baseUrl}}
+Accept: application/json
+
+### Get one user
+GET {{baseUrl}}/{{userId}}
+Accept: application/json
+
+### Create user
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+	"name": "Alice Johnson",
+	"email": "alice@example.com",
+	"age": 28
+}
+
+### Update user
+PUT {{baseUrl}}/{{userId}}
+Content-Type: application/json
+
+{
+	"name": "Alice Smith",
+	"email": "alice.smith@example.com",
+	"age": 29
+}
+
+### Delete user
+DELETE {{baseUrl}}/{{userId}}
+Accept: application/json
