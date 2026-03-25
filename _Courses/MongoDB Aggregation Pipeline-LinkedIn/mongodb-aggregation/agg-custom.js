@@ -6,20 +6,41 @@ const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 const agg = [
   {
-    $lookup: {
-      from: "products",
-      localField: "items",
-      foreignField: "_id",
-      as: "items",
+    $limit: 10,
+  },
+  {
+    $addFields: {
+      shipping: {
+        $function: {
+          body: `function(zipCode) {
+                    let firstDigit = parseInt(zipCode[0]);
+                    switch(firstDigit){
+                      case 0:
+                      case 1:
+                      case 2:
+                        return "1 day";
+                      case 3:
+                      case 4:
+                      case 5:
+                      case 6:
+                        return "2 day";
+                      default:
+                        return "3 days";
+                    }
+                  }`,
+          args: ["$address.zipCode"],
+          lang: "js",
+        },
+      },
     },
   },
 ];
 
 async function run() {
   try {
-    const database = client.db("mongo-study");
+    const database = client.db("study");
     const result = await database
-      .collection("vendors")
+      .collection("customers")
       .aggregate(agg)
       .toArray();
 
