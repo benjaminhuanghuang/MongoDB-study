@@ -14,6 +14,7 @@ const agg = [
     },
   },
   {
+    // Group the documents by vendor and count the number of purchases for each vendor
     $group: {
       _id: "$items.vendor",
       purchases: {
