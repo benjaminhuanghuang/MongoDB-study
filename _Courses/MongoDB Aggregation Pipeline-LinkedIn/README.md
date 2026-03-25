@@ -4,6 +4,8 @@ https://www.linkedin.com/learning/mongodb-aggregation-pipeline-advanced-data-ana
 
 Code: https://github.com/LinkedInLearning/master-the-mongodb-aggregation-pipeline-2505629
 
+A MongoDB aggregation pipeline is a framework for data transformation and analysis, processing documents through sequential stages ($match, $group, $sort, $project) to produce computed results.
+
 ## Table of content
 
 - MongoDB Aggregation Framework
